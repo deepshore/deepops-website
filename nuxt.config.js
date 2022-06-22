@@ -8,6 +8,12 @@ export default defineNuxtConfig({
     // add '~tailwind.config` alias
     exposeConfig: true
   },
+  runtimeConfig: {
+    secretKey: '', // variable that can only be accessed on the server side
+    public: {
+      BACKEND_URL: process.env.BACKEND_URL || '' // variable that can also be accessed on the client side
+    }
+  },
   target: 'static',
   googleFonts: {
     families: {

@@ -1,7 +1,9 @@
 <script setup>
-const baseUrl = "http://localhost:8000"
+const config = useRuntimeConfig().public
+const baseUrl = config.BACKEND_URL
 const pageUrlName = "deepops-homepage"
 const mediaBaseURL = "user/pages"
+console.debug(baseUrl)
 const { data } = await useFetch(`${baseUrl}/${pageUrlName}.json`)
 </script>
 
