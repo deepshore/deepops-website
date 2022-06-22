@@ -8,7 +8,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nuxt2Deepops',
+    title: 'Deepops - Start your Cloud Native Operations today',
 
     htmlAttrs: {
       lang: 'en'
@@ -19,8 +19,11 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
+    bodyAttrs: {
+      class: 'bg-gray-50'
+    },
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon-96x96.ico' }
     ]
   },
 

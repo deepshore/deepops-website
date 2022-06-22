@@ -2,7 +2,7 @@
   <div class="w-full flex flex-col space-y-4 md:space-y-0 max-w-screen-2xl mx-auto">
     <section class="xl:py-4 w-full">
       <div
-        class="w-full text-left md:text-center xl:rounded-lg md:drop-shadow-xl ring-1 ring-gray-900/5 py-4 sm:py-24 md:py-32 lg:py-64 bg-team-blue bg-cove"
+        class="w-full text-left md:text-center 2xl:rounded-3xl md:drop-shadow-xl ring-1 ring-gray-900/5 py-4 sm:py-24 md:py-32 lg:py-64 bg-team-blue bg-cove"
       >
         <div class="md:w-3/5 md:mx-auto px-4 sm:px-16">
           <h1
