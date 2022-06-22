@@ -2,15 +2,15 @@
   <div class="w-full flex flex-col space-y-4 md:space-y-0 max-w-screen-2xl mx-auto">
     <section class="xl:py-4 w-full">
       <div
-        class="w-full text-left md:text-center xl:rounded-lg md:drop-shadow-xl ring-1 ring-gray-900/5 py-4 sm:py-24 md:py-32 lg:py-64 bg-team-blue bg-cove"
+        class="w-full text-left md:text-center xl:rounded-lg md:drop-shadow-xl ring-1 ring-gray-900/5 py-4 sm:py-24 md:py-32 lg:py-64 bg-team-blue bg-cover text-slate-50"
       >
         <div class="md:w-3/5 md:mx-auto px-4 sm:px-16">
           <h1
-            class="font-headline my-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight slide-in-bottom-h1 text-white"
+            class="font-headline my-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight slide-in-bottom-h1"
           >
             {{ data.frontmatter.headline }}
           </h1>
-          <h3 class="font-sans md:text-2xl mb-4 slide-in-bottom-subtitle text-white">
+          <h3 class="font-sans md:text-2xl mb-4 slide-in-bottom-subtitle">
             {{ data.frontmatter.subheadline }}
           </h3>
           <button
@@ -90,7 +90,7 @@ export default {
   data () {
     return {
       data: {},
-      baseUrl: process.env.backendUrl,
+      baseUrl: 'http://127.0.0.1:8001',
       pageUrlName: 'deepops-homepage',
       mediaBaseURL: 'user/pages'
     }

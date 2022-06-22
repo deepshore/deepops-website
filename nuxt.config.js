@@ -1,22 +1,68 @@
-import { defineNuxtConfig } from 'nuxt'
-
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
-export default defineNuxtConfig({
-  //modules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-fonts'],
-  modules: ['@nuxtjs/tailwindcss' ],
-  tailwindcss: {
-    // add '~tailwind.config` alias
-    exposeConfig: true
-  },
-  runtimeConfig: {
-    secretKey: '', // variable that can only be accessed on the server side
-    public: {
-      BACKEND_URL: process.env.BACKEND_URL || '' // variable that can also be accessed on the client side
-    }
-  },
+export default {
+  // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   ssr: true,
   router: {
     base: '/deepops-website/'
+  },
+
+  // Global page headers: https://go.nuxtjs.dev/config-head
+  head: {
+    title: 'nuxt2Deepops',
+
+    htmlAttrs: {
+      lang: 'en'
+    },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' },
+      { name: 'format-detection', content: 'telephone=no' }
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
+  },
+
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: [
+  ],
+
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: [
+  ],
+
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/eslint-module',
+    // https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-fonts'
+  ],
+
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+  ],
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+  },
+
+  googleFonts: {
+    families: {
+      Lato: [400, 700, 900],
+      Montserrat: [700],
+      Nunito: [500, 700]
+    },
+    download: true
+  },
+
+  env: {
+    backendUrl: process.env.BACKEND_URL || ''
   }
-})
+
+}

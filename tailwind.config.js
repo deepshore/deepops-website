@@ -2,14 +2,14 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'team-blue': "url('/img/office.jpg')",
-        'beams': "url('/img/beams.jpeg')",
+        'team-blue': "url('~/assets/office.jpg')",
+        beams: "url('~/assets/beams.jpeg')"
       }
     },
     fontFamily: {
-      'sans': ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
-      'button': ['Nunito', 'Helvetica', 'Arial', 'sans-serif'],
-      'headline': ['Montserrat', 'sans-serif']
-    },
+      sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
+      button: ['Nunito', 'Helvetica', 'Arial', 'sans-serif'],
+      headline: ['Montserrat', 'sans-serif']
+    }
   }
 }
