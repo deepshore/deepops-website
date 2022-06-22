@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     // add '~tailwind.config` alias
     exposeConfig: true
   },
+  target: 'static',
   googleFonts: {
     families: {
       Roboto: true,
