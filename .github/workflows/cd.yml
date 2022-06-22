@@ -1,6 +1,9 @@
 name: cd
 
 on: [push, pull_request]
+env:
+  ## Sets environment variable
+  BACKEND_URL: https://deepshore.de
 
 jobs:
   cd:
