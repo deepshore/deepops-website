@@ -12,7 +12,7 @@ on:
 env:
   ## Sets environment variable
   BACKEND_URL: https://deepshore.de
-  
+
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
@@ -48,6 +48,6 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
-      - name: Run linter 👀
-        run: yarn lint
+      # - name: Run linter 👀
+      #   run: yarn lint
 
