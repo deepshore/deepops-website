@@ -6,6 +6,9 @@ export default {
     base: '/deepops-website/'
   },
 
+  env: {
+    backendUrl: process.env.BACKEND_URL || ''
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Deepops - Start your Cloud Native Operations today',
@@ -16,7 +19,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Unser Team als Ihr Back-up! Wir befähigen und unterstützen Ihre DevOps-Organisation.' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     bodyAttrs: {
@@ -44,7 +47,8 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@aceforth/nuxt-optimized-images'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -63,9 +67,7 @@ export default {
     },
     download: true
   },
-
-  env: {
-    backendUrl: process.env.BACKEND_URL || ''
+  optimizedImages: {
+    optimizeImages: true
   }
-
 }
