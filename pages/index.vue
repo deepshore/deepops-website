@@ -35,11 +35,12 @@
           <div
             class="flex-none rounded-xl xl:rounded-3xl w-16 h-16 xl:w-32 xl:h-32 px-4 py-4 xl:px-8 xl:py-8 shadow-xl group-hover:shadow-xl group-hover:shadow-cyan-700/20 bg-white sm:mx-auto"
           >
-            <img
+            <nuxt-img
+              quality="80" format="webp"
               class="object-contain w-8 h-8 xl:h-16 xl:w-16 "
               :src="getImagePath(section.icon)"
               :alt="`${section.title}-logo`"
-            >
+            />
           </div>
           <span class="font-headline text-lg sm:mt-3 group-hover:underline underline-offset-4 decoration-4 ">
             {{ section.title }}
@@ -73,7 +74,7 @@
           >
             <div v-for="(item, i) in section.links " :key="i">
               <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24">
-                <img class="object-contain grayscale hover:grayscale-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" :src="getImagePath(item.icon)">
+                <img class="object-contain grayscale hover:grayscale-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" :src="getImagePath(item.icon)" :alt="item.label">
               </div>
             </div>
           </div>
