@@ -1,8 +1,8 @@
 <template>
   <nav id="navbar" class="relative z-10 w-full text-neutral-800">
     <div
-      class="flex flex-row max-w-screen-2xl px-4 xl:px-0
-     mx-auto items-center justify-between l xl:py-4"
+      class="flex flex-row max-w-screen-2xl px-4 2xl:px-0
+     mx-auto items-center justify-between py-0 xl:py-4"
     >
       <div class="flex flex-col lg:flex-row items-center space-x-4 xl:space-x-8">
         <div class="w-full flex flex-row items-center justify-between py-6">
