@@ -53,7 +53,7 @@
         class="flex flex-col md:flex-row flex-col-reverse mb-16 md:items-center"
         :class="{ 'md:flex-row-reverse': section.content_side === 'left' }"
       >
-        <div class="w-2/3 xl:w-1/2 p-4 sm:p-8 md:p-12 xl:p-16">
+        <div class="md:w-2/3 xl:w-1/2 p-4 sm:p-8 md:p-12 xl:p-16">
           <h2
             class="font-headline text-2xl md:text-4xl xl:text-6xl text-black-800 font-black leading-tight text-center md:text-left slide-in-bottom-h1"
             :class="{ 'md:text-right': section.content_side === 'left' }"
@@ -78,13 +78,12 @@
             </div>
           </div>
         </div>
-        <div class="mx-auto md:w-1/2 p-4 sm:p-8 md:p-12 xl:p-16">
+        <div class="mx-auto sm:w-2/3 md:w-1/2 p-4 sm:p-8 md:p-12 xl:p-16">
           <div class="">
             <img class="object-center" :src="getImagePath(section.image)" :alt="`${section.image_alt_text}-logo`">
           </div>
         </div>
       </div>
-
     </section>
   </div>
 </template>
