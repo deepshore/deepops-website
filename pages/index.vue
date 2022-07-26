@@ -109,7 +109,7 @@ export default {
     if (localeCode !== 'de') {
       localeURL = `${localeCode}/`
     }
-    const url = `${this.baseUrl}${localeURL}${this.pageUrlName}.json`
+    const url = `${this.baseUrl}/${localeURL}${this.pageUrlName}.json`
     this.data = await fetch(
       url
     ).then(res => res.json())
