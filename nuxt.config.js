@@ -49,12 +49,12 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
     '@nuxt/image',
-    '@aceforth/nuxt-optimized-images',
+    '@aceforth/nuxt-optimized-images'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/i18n',
+    '@nuxtjs/i18n'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -72,13 +72,13 @@ export default {
       {
         code: 'de',
         name: 'Deutsch'
-      },
+      }
     ],
     defaultLocale: 'de',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      redirectOn: 'root',  // recommended
+      redirectOn: 'root' // recommended
     }
   },
   googleFonts: {

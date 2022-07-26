@@ -110,7 +110,6 @@ export default {
       localeURL = `${localeCode}/`
     }
     const url = `${this.baseUrl}/${localeURL}${this.pageUrlName}.json`
-    console.log('url:', url)
     this.data = await fetch(
       url
     ).then(res => res.json())
