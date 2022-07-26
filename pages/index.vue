@@ -89,7 +89,9 @@
 </template>
 
 <script>
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+if (process.env.NODE_ENV === 'development') {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+}
 
 export default {
   name: 'IndexPage',
@@ -102,10 +104,20 @@ export default {
     }
   },
   async fetch () {
-    const url = `${this.baseUrl}/${this.pageUrlName}.json`
+    const localeCode = this.$i18n.localeProperties.code
+    let localeURL = ''
+    if (localeCode !== 'de') {
+      localeURL = `${localeCode}/`
+    }
+    const url = `${this.baseUrl}${localeURL}${this.pageUrlName}.json`
     this.data = await fetch(
       url
     ).then(res => res.json())
+  },
+  computed: {
+    availableLocales () {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
   },
   methods: {
     getPageByLink (link) {
