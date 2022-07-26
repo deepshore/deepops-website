@@ -12,23 +12,10 @@
         </div>
       </div>
       <div class="lg:flex">
-        <nuxt-link
-          v-for="locale in availableLocales"
-          :key="locale.code"
-          class="font-bold hover:underline underline-offset-4 decoration-2"
-          :to="switchLocalePath(locale.code)">{{ locale.name }}
-        </nuxt-link>
+        <a href="#" class="font-bold hover:underline underline-offset-4 decoration-2">deutsch</a>
+        <span>&nbsp;/&nbsp;</span>
+        <a href="#" class="hover:underline underline-offset-4 decoration-2">english</a>
       </div>
     </div>
   </nav>
 </template>
-
-<script>
-export default {
-  computed: {
-    availableLocales () {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
-    }
-  }
-}
-</script>
