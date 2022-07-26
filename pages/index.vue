@@ -89,7 +89,9 @@
 </template>
 
 <script>
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+if (process.env.NODE_ENV === 'development') {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+}
 
 export default {
   name: 'IndexPage',
@@ -108,6 +110,7 @@ export default {
       localeURL = `${localeCode}/`
     }
     const url = `${this.baseUrl}/${localeURL}${this.pageUrlName}.json`
+    console.log('url:', url)
     this.data = await fetch(
       url
     ).then(res => res.json())

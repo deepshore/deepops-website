@@ -7,7 +7,7 @@ export default {
   },
 
   env: {
-    backendUrl: process.env.BACKEND_URL || ''
+    backendUrl: process.env.BACKEND_URL || 'https://127.0.0.1:8000'
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -54,12 +54,33 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/i18n',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
 
+  // i18n config
+  i18n: {
+    /* module options */
+    locales: [
+      {
+        code: 'en',
+        name: 'English'
+      },
+      {
+        code: 'de',
+        name: 'Deutsch'
+      },
+    ],
+    defaultLocale: 'de',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',  // recommended
+    }
+  },
   googleFonts: {
     families: {
       Lato: [400, 700, 900],
