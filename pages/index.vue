@@ -89,9 +89,7 @@
 </template>
 
 <script>
-if (process.env.NODE_ENV === 'development') {
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
-}
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 export default {
   name: 'IndexPage',
@@ -113,11 +111,6 @@ export default {
     this.data = await fetch(
       url
     ).then(res => res.json())
-  },
-  computed: {
-    availableLocales () {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
-    }
   },
   methods: {
     getPageByLink (link) {
