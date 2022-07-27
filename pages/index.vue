@@ -34,6 +34,7 @@
         >
           <div
             class="flex-none rounded-xl xl:rounded-3xl w-16 h-16 xl:w-32 xl:h-32 px-4 py-4 xl:px-8 xl:py-8 shadow-xl group-hover:shadow-xl group-hover:shadow-cyan-700/20 bg-white sm:mx-auto"
+            v-if="section.image"
           >
             <img
               class="object-contain w-8 h-8 xl:h-16 xl:w-16 "
@@ -48,39 +49,41 @@
       </div>
     </section>
 
-    <section v-for="(section, index) in data.frontmatter.sections" :id="index" :key="index" class="w-full">
+    <section v-for="(section, index) in data.frontmatter.sections" :id="index" :key="index" class="w-full mb-16 p-4 sm:p-8 md:p-12 xl:p-16">
       <div
-        class="flex flex-col md:flex-row flex-col-reverse mb-16 md:items-center"
+        class="flex flex-col md:flex-row flex-col-reverse md:items-center"
         :class="{ 'md:flex-row-reverse': section.content_side === 'left' }"
       >
-        <div class="md:w-2/3 xl:w-1/2 p-4 sm:p-8 md:p-12 xl:p-16">
+        <div class="pr-4 sm:pr-8 md:pr-12 xl:pr-16">
           <h2
             class="font-headline text-2xl md:text-4xl xl:text-6xl text-black-800 font-black leading-tight text-center md:text-left slide-in-bottom-h1"
-            :class="{ 'md:text-right': section.content_side === 'left' }"
           >
             {{ section.title }}
           </h2>
           <p
-            class="text-base lg:text-xl my-4 text-center md:text-left slide-in-bottom-subtitle"
-            :class="{ 'md:text-right': section.content_side === 'left' }"
+            class="text-base lg:text-xl xl:text-2xl mb-4 text-center md:text-left slide-in-bottom-subtitle"
           >
             {{ section.text }}
           </p>
-
-          <div
-            class="flex flex-row w-full gap-x-8 justify-center md:justify-start"
-            :class="{ 'md:justify-end': section.content_side === 'left' }"
-          >
-            <div v-for="(item, i) in section.links " :key="i">
-              <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24">
-                <img class="object-contain grayscale hover:grayscale-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" :src="getImagePath(item.icon)" :alt="item.label">
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="mx-auto sm:w-2/3 md:w-1/2 p-4 sm:p-8 md:p-12 xl:p-16">
+        <div class="mx-auto sm:w-2/3 md:w-1/2 px-4 sm:px-8 md:px-12 xl:px-16 flex-none" v-if="section.image">
           <div class="">
             <img class="object-center" :src="getImagePath(section.image)" :alt="`${section.image_alt_text}-logo`">
+          </div>
+        </div>
+      </div>
+
+      <!-- Seperator -->
+      <div class="h-0.5 w-full bg-gradient-to-r from-transparent via-gray-200 via-gray-200" />
+
+      <!-- Logos -->
+      <div
+        class="flex flex-row w-full gap-x-8 justify-center md:justify-start"
+        :class="{ 'md:justify-end': section.content_side === 'left' }"
+      >
+        <div v-for="(item, i) in section.links " :key="i">
+          <div class="w-auto sm:h-20 md:w-24 md:h-24">
+            <img class="object-contain grayscale hover:grayscale-0 h-16 sm:h-20 md:h-24" :src="getImagePath(item.icon)" :alt="item.label">
           </div>
         </div>
       </div>
