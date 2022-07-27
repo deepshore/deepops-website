@@ -5,13 +5,13 @@
         class="w-full text-left md:text-center 2xl:rounded-3xl md:drop-shadow-xl py-4 sm:py-12 md:py-16 lg:py-24 xl:py-32 2xl:py-64 bg-cover bg-center"
         :style="{'background-image': `url(${getImagePath(data.frontmatter.image)})`}"
       >
-        <div class="md:w-3/5 md:mx-auto px-4 sm:px-16">
+        <div class="w-full md:w-1/2 px-4 sm:px-16">
           <h1
             class="font-headline my-4 text-2xl sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl leading-tight slide-in-bottom-h1 text-white"
           >
             {{ data.frontmatter.headline }}
           </h1>
-          <p class="font-sans sm:text-md md:text-lg mb-4 slide-in-bottom-subtitle text-white">
+          <p class="font-sans sm:text-md md:text-lg mb-4 slide-in-bottom-subtitle text-white ">
             {{ data.frontmatter.subheadline }}
           </p>
           <button
