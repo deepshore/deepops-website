@@ -33,11 +33,11 @@
           :href="'#' + index"
         >
           <div
-            class="flex-none rounded-xl xl:rounded-3xl w-16 h-16 xl:w-32 xl:h-32 px-4 py-4 xl:px-8 xl:py-8 shadow-xl group-hover:shadow-xl group-hover:shadow-cyan-700/20 bg-white sm:mx-auto"
+            class="flex-none w-16 h-16 xl:w-48 xl:h-48 sm:mx-auto"
             v-if="section.image"
           >
             <img
-              class="object-contain w-8 h-8 xl:h-16 xl:w-16 "
+              class="object-contain w-full h-full"
               :src="getImagePath(section.icon)"
               :alt="`${section.title}-logo`"
             >
