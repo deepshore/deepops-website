@@ -47,7 +47,7 @@
       >
         <div class="">
           <h2
-            class="font-headline text-2xl md:text-4xl xl:text-6xl 2xl:text-8xl leading-tight text-center md:text-left slide-in-bottom-h1"
+            class="font-headline text-3xl md:text-4xl xl:text-6xl 2xl:text-8xl leading-tight text-center md:text-left slide-in-bottom-h1"
           >
             {{ section.title }}
           </h2>
