@@ -1,40 +1,31 @@
 <template>
-  <div class="w-full flex flex-col space-y-4 md:space-y-0 max-w-screen-2xl mx-auto">
-    <section class="xl:py-4 w-full">
+  <div class="w-full flex flex-col space-y-4 md:space-y-0 max-w-screen-2xl mx-auto text-slate-800">
+    <section class="xl:py-4 w-full shrink">
+      <!-- Mobile -->
+      <div class="block sm:hidden">
+        <div class="bg-cover bg-right h-80" :style="{'background-image': `url(${getImagePath(data.frontmatter.image.mobile)})`}" />
+        <HeaderText :data="data" />
+      </div>
+      <!-- Desktop -->
       <div
-        class="w-full text-left md:text-center 2xl:rounded-3xl md:drop-shadow-xl py-4 sm:py-12 md:py-16 lg:py-24 xl:py-32 2xl:py-64 bg-cover bg-center"
-        :style="{'background-image': `url(${getImagePath(data.frontmatter.image)})`}"
+        class="hidden sm:block w-full 2xl:rounded-3xl md:drop-shadow-xl py-4 sm:py-12 md:py-16 lg:py-24 xl:py-32 2xl:py-64 bg-cover bg-center"
+        :style="{'background-image': `url(${getImagePath(data.frontmatter.image.desktop)})`}"
       >
-        <div class="w-full md:w-1/2 px-4 sm:px-16">
-          <h1
-            class="font-headline my-4 text-2xl sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl leading-tight slide-in-bottom-h1 text-white"
-          >
-            {{ data.frontmatter.headline }}
-          </h1>
-          <p class="font-sans sm:text-md md:text-lg mb-4 slide-in-bottom-subtitle text-white ">
-            {{ data.frontmatter.subheadline }}
-          </p>
-          <button
-            type="button"
-            class="font-butto text-white bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-yellow-500 hover:to-pink-500 rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-sky-500 dark:focus:ring-blue-800 uppercase font-bold tracking-widest"
-          >
-            Kontakt aufnehmen
-          </button>
-        </div>
+        <HeaderText :data="data" />
       </div>
     </section>
 
     <section class="w-full">
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 my-4 sm:my-8 md:my-16 xl:my-24 gap-y-8 text-center">
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 my-4 sm:my-8 md:my-16 xl:my-24 gap-y-2 sm:gap-y-8 text-center">
         <a
           v-for="(section, index) in data.frontmatter.sections"
           :key="index"
-          class="group flex flex-row gap-8 sm:gap-0 sm:flex-col mx-8 sm:mx-0 items-center items-center sm:items-stretch"
+          class="group flex flex-row gap-1 sm:gap-0 sm:flex-col mx-8 sm:mx-0 items-center items-center sm:items-stretch"
           :href="'#' + index"
         >
           <div
-            class="flex-none w-16 h-16 xl:w-48 xl:h-48 sm:mx-auto"
             v-if="section.image"
+            class="flex-none w-16 h-16 md:w-16 md:h-16 xl:w-48 xl:h-48 sm:mx-auto"
           >
             <img
               class="object-contain w-full h-full"
@@ -54,19 +45,27 @@
         class="flex flex-col md:flex-row flex-col-reverse md:items-center"
         :class="{ 'md:flex-row-reverse': section.content_side === 'left' }"
       >
-        <div class="pr-4 sm:pr-8 md:pr-12 xl:pr-16">
+        <div class="">
           <h2
-            class="font-headline text-2xl md:text-4xl xl:text-6xl text-black-800 font-black leading-tight text-center md:text-left slide-in-bottom-h1"
+            class="font-headline text-2xl md:text-4xl xl:text-6xl 2xl:text-8xl leading-tight text-center md:text-left slide-in-bottom-h1"
           >
             {{ section.title }}
           </h2>
+          <h3
+            v-if="section.subtitle"
+            class="font-headline uppercase text-1xl md:text-2xl xl:text-4xl leading-tight text-center md:text-left slide-in-bottom-h1"
+            :class="{'md:text-center': section.content_side === 'center'}"
+          >
+            {{ section.subtitle }}
+          </h3>
           <p
             class="text-base lg:text-xl xl:text-2xl mb-4 text-center md:text-left slide-in-bottom-subtitle"
+            :class="{'md:text-center': section.content_side === 'center'}"
           >
             {{ section.text }}
           </p>
         </div>
-        <div class="mx-auto sm:w-2/3 md:w-1/2 px-4 sm:px-8 md:px-12 xl:px-16 flex-none" v-if="section.image">
+        <div v-if="section.image" class="mx-auto w-1/2 sm:w-2/3 md:w-1/2 px-2 sm:px-8 md:px-12 xl:px-16 2xl:px-32 flex-none">
           <div class="">
             <img class="object-center" :src="getImagePath(section.image)" :alt="`${section.image_alt_text}-logo`">
           </div>
@@ -74,17 +73,21 @@
       </div>
 
       <!-- Seperator -->
-      <div class="h-0.5 w-full bg-gradient-to-r from-transparent via-gray-200 via-gray-200" />
+      <div class="hidden sm:flex w-full my-5 relative">
+        <div v-if="section.content_side === 'left'" class="absolute right-0 h-0.5 w-1/2 sm:w-1/3 md:w-1/2 bg-gradient-to-r from-transparent via-gray-200 to-gray-200" />
+        <div v-if="section.content_side === 'right'" class="h-0.5 w-1/2 sm:w-1/3 md:w-1/2 bg-gradient-to-r from-gray-200 via-gray-200" />
+        <div v-if="section.content_side === 'center'" class="h-0.5 w-full bg-gradient-to-r from-transparent via-gray-200" />
+      </div>
 
       <!-- Logos -->
       <div
-        class="flex flex-row w-full gap-x-8 justify-center md:justify-start"
-        :class="{ 'md:justify-end': section.content_side === 'left' }"
+        class="flex flex-row w-full gap-x-2 sm:gap-x-8 justify-center md:justify-start"
+        :class="{ 'md:justify-end': section.content_side === 'left', 'md:justify-center': section.content_side === 'center' }"
       >
         <div v-for="(item, i) in section.links " :key="i">
-          <div class="w-auto sm:h-20 md:w-24 md:h-24">
-            <img class="object-contain grayscale hover:grayscale-0 h-16 sm:h-20 md:h-24" :src="getImagePath(item.icon)" :alt="item.label">
-          </div>
+          <a class="w-auto" :href="item.url">
+            <img class="object-contain h-12 sm:h-16 xl:h-24" :src="getImagePath(item.icon)" :alt="item.label">
+          </a>
         </div>
       </div>
     </section>
@@ -123,9 +126,6 @@ export default {
     },
     getImagePath (file) {
       return `${this.baseUrl}/${this.mediaBaseURL}/${this.pageUrlName}/${file}`
-    },
-    getImageBGClass (file) {
-      return `bg-[url('${this.getImagePath(file)}')]`
     }
   }
 }

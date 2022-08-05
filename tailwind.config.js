@@ -2,7 +2,6 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'team-blue': "url('~/assets/office.jpg')",
         beams: "url('~/assets/beams.jpeg')"
       }
     },

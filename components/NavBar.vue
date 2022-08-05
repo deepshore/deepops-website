@@ -15,7 +15,7 @@
         <nuxt-link
           v-for="locale in availableLocales"
           :key="locale.code"
-          class="font-bold hover:underline underline-offset-4 decoration-2"
+          class="font-bold hover:underline underline-offset-2 decoration-4"
           :to="switchLocalePath(locale.code)"
         >
           {{ locale.name }}
