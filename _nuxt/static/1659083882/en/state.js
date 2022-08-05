@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fdeepops-website\u002F_nuxt\u002Fstatic\u002F1659083882",layout:"default",error:a,serverRendered:true,routePath:"\u002Fen",config:{_app:{basePath:"\u002Fdeepops-website\u002F",assetsPath:"\u002Fdeepops-website\u002F_nuxt\u002F",cdnURL:a}}}}(null));
