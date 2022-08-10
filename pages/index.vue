@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex flex-col space-y-4 md:space-y-0 max-w-screen-2xl mx-auto text-slate-800">
+  <div class="w-full flex flex-col space-y-4 md:space-y-8 max-w-screen-2xl mx-auto text-slate-800">
     <section class="xl:py-4 w-full shrink">
       <!-- Mobile -->
       <div class="block sm:hidden">
@@ -16,7 +16,7 @@
     </section>
 
     <section class="w-full">
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 my-4 sm:my-8 md:my-16 xl:my-24 gap-y-2 sm:gap-y-8 text-center">
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 my-2 sm:my-4 md:my-8 xl:my-12 gap-y-4 sm:gap-y-8 text-center">
         <a
           v-for="(section, index) in data.frontmatter.sections"
           :key="index"
@@ -33,27 +33,27 @@
               :alt="`${section.title}-logo`"
             >
           </div>
-          <span class="font-headline text-lg sm:mt-3 group-hover:underline underline-offset-4 decoration-4 px-2">
+          <span class="font-headline font-bold text-lg sm:mt-3 group-hover:underline underline-offset-4 decoration-4 px-2">
             {{ section.title }}
           </span>
         </a>
       </div>
     </section>
 
-    <section v-for="(section, index) in data.frontmatter.sections" :id="index" :key="index" class="w-full mb-16 p-4 sm:p-8 md:p-12 xl:p-16">
+    <section v-for="(section, index) in data.frontmatter.sections" :id="index" :key="index" class="w-full p-4 sm:p-8 md:p-12 xl:p-16 pb-32">
       <div
         class="flex flex-col md:flex-row flex-col-reverse md:items-center"
         :class="{ 'md:flex-row-reverse': section.content_side === 'left' }"
       >
         <div class="">
           <h2
-            class="font-headline text-3xl md:text-4xl xl:text-6xl 2xl:text-8xl leading-tight text-center md:text-left slide-in-bottom-h1"
+            class="font-headline font-bold text-3xl md:text-4xl xl:text-6xl 2xl:text-6xl leading-tight text-center md:text-left slide-in-bottom-h1"
           >
             {{ section.title }}
           </h2>
           <h3
             v-if="section.subtitle"
-            class="font-headline uppercase text-1xl md:text-2xl xl:text-4xl leading-tight text-center md:text-left slide-in-bottom-h1"
+            class="font-headline font-light uppercase text-1xl md:text-2xl xl:text-3xl text-center md:text-left slide-in-bottom-h1"
             :class="{'md:text-center': section.content_side === 'center'}"
           >
             {{ section.subtitle }}
@@ -65,7 +65,7 @@
             {{ section.text }}
           </p>
         </div>
-        <div v-if="section.image" class="mx-auto w-1/2 sm:w-2/3 md:w-1/2 px-2 sm:px-8 md:px-12 xl:px-16 2xl:px-32 flex-none">
+        <div v-if="section.image" class="mx-auto w-1/2 xl:w-1/3 2xl:w-2/5 flex-none">
           <div class="">
             <img class="object-center" :src="getImagePath(section.image)" :alt="`${section.image_alt_text}-logo`">
           </div>
@@ -73,10 +73,14 @@
       </div>
 
       <!-- Seperator -->
-      <div class="hidden sm:flex w-full my-5 relative">
+      <div class="hidden md:flex w-full my-5 relative">
         <div v-if="section.content_side === 'left'" class="absolute right-0 h-0.5 w-1/2 sm:w-1/3 md:w-1/2 bg-gradient-to-r from-transparent via-gray-200 to-gray-200" />
         <div v-if="section.content_side === 'right'" class="h-0.5 w-1/2 sm:w-1/3 md:w-1/2 bg-gradient-to-r from-gray-200 via-gray-200" />
         <div v-if="section.content_side === 'center'" class="h-0.5 w-full bg-gradient-to-r from-transparent via-gray-200" />
+      </div>
+      <!-- Seperator -->
+      <div class="flex md:hidden w-full my-2 relative">
+        <div class="h-0.5 w-full bg-gradient-to-r from-transparent via-gray-200" />
       </div>
 
       <!-- Logos -->
@@ -86,7 +90,7 @@
       >
         <div v-for="(item, i) in section.links " :key="i">
           <a class="w-auto" :href="item.url">
-            <img class="object-contain h-12 sm:h-16 xl:h-24" :src="getImagePath(item.icon)" :alt="item.label">
+            <img class="object-contain h-12 sm:h-16 xl:h-20" :src="getImagePath(item.icon)" :alt="item.label">
           </a>
         </div>
       </div>
@@ -104,7 +108,7 @@ export default {
   data () {
     return {
       data: {},
-      baseUrl: process.env.backendUrl,
+      baseUrl: process.env.BACKEND_URL,
       pageUrlName: 'deepops-homepage',
       mediaBaseURL: 'user/pages'
     }

@@ -83,11 +83,17 @@ export default {
   },
   googleFonts: {
     families: {
-      Lato: [400, 700, 900],
-      Montserrat: [700],
-      Nunito: [500, 700]
+      Lato: {
+        wght: [400, 700, 900] 
+      },
+      Montserrat: {
+        wght: [700, 400, 300, 200]
+      },
+      Nunito: {wght: [500, 700]}
     },
-    download: true
+    download: true,
+    inject: true,
+    overwriting: true
   },
 
   image: {
