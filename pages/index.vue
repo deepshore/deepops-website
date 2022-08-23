@@ -24,7 +24,7 @@
           class="group flex flex-row gap-1 sm:gap-0 sm:flex-col mx-8 sm:mx-0 items-center items-center sm:items-stretch"
           :href="'#' + index"
         >
-          <span class="sr-only">{{section.title}} Link</span>
+          <span class="sr-only">{{ section.title }} Link</span>
           <div
             v-if="section.image"
             class="flex-none w-16 h-16 md:w-16 md:h-16 xl:w-48 xl:h-48 sm:mx-auto"
