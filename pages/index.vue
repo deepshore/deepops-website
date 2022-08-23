@@ -15,6 +15,7 @@
       </div>
     </section>
 
+    <!-- Navigation/Logo Section -->
     <section class="w-full">
       <div class="grid sm:grid-cols-2 md:grid-cols-4 my-2 sm:my-4 md:my-8 xl:my-12 gap-y-4 sm:gap-y-8 text-center">
         <a
@@ -41,6 +42,7 @@
       </div>
     </section>
 
+    <!-- Content Sections -->
     <section v-for="(section, index) in data.frontmatter.sections" :id="index" :key="index" class="w-full p-4 sm:p-8 md:p-12 xl:p-16 pb-32">
       <div
         class="flex flex-col md:flex-row flex-col-reverse md:items-center"
@@ -100,6 +102,7 @@
 </template>
 
 <script>
+// Allows for usasge of self assigned ssl certs on dev systems
 if (process.env.NODE_ENV === 'development') {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 }
