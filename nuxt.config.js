@@ -3,7 +3,7 @@ export default {
   target: 'static',
   ssr: true,
   router: {
-    base: '/deepops-website/'
+    base: '/'
   },
 
   env: {
