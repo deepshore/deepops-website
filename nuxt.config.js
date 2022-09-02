@@ -3,7 +3,7 @@ export default {
   target: 'static',
   ssr: true,
   router: {
-    base: '/deepops-website/'
+    base: '/'
   },
 
   env: {
@@ -84,7 +84,7 @@ export default {
   googleFonts: {
     families: {
       Lato: {
-        wght: [400, 700, 900] 
+        wght: [400, 700, 900]
       },
       Montserrat: {
         wght: [700, 400, 300, 200]
