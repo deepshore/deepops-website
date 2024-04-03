@@ -59,6 +59,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    html: {
+      minify: {
+        // https://github.com/nuxt-modules/tailwindcss/issues/431#issuecomment-1062815238
+        minifyCSS: false
+      }
+    }
   },
 
   // i18n config

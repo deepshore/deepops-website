@@ -1,4 +1,5 @@
 module.exports = {
+  viewer: false,
   theme: {
     extend: {
       backgroundImage: {
