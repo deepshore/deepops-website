@@ -1,3 +1,3 @@
 - op: replace
   path: /spec/template/spec/containers/0/image
-  value: ghcr.io/deepshore/deepops-website:pr-4
+  value: ghcr.io/deepshore/deepops-website@sha256:8fe7746be50180a8281a5e6855e0d40bee3935ac96d520c5966c6aefbcc08da9
