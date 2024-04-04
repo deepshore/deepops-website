@@ -31,9 +31,6 @@ export default defineNuxtConfig({
   },
   ssr: true,
   // https://github.com/nuxt/nuxt/discussions/23236#discussioncomment-7015143
-  experimental: {
-    payloadExtraction: true
-  },
   nitro: {
     static: true
   },
