@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - app-server.yaml
   - app-server-service.yaml
-namespace: deeplaw
+namespace: deepops-website
 configMapGenerator:
   - name: deepops-website-config
     files:
