@@ -31,7 +31,8 @@ export default defineNuxtConfig({
   },
   ssr: true,
   nitro: {
-    static: true
+    static: true,
+    preset: 'static'
   },
   modules: [
     '@nuxtjs/google-fonts',

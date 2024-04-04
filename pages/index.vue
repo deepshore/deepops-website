@@ -121,7 +121,6 @@ if (localeCode !== 'de') {
 const url = `${appConfig.baseUrl}/${localeURL}${appConfig.pageUrlName}.json`
 const { data: deepOpsPages } = await useFetch(url)
 
-watch(() => route.query, () => refresh())
 </script>
 
 
