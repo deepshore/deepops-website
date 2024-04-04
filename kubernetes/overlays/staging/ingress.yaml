@@ -6,6 +6,10 @@ metadata:
     nginx.ingress.kubernetes.io/enable-modsecurity: "true"
 spec:
   ingressClassName: nginx
+  tls:
+    - secretName: staging-deepops-website-tls
+      hosts:
+        - deepops.de
   rules:
     - http:
         paths:
