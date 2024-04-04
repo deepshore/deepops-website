@@ -45,11 +45,13 @@ export default defineNuxtConfig({
     locales: [
       {
         code: 'de',
-        name: 'Deutsch'
+        name: 'Deutsch',
+        iso: 'de-DE'
       },
       {
         code: 'en',
-        name: 'English'
+        name: 'English',
+        iso: 'en-US'
       }
     ],
     defaultLocale: 'de',

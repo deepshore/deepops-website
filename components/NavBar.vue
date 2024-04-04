@@ -17,7 +17,8 @@
           :key="locale.code"
           class="font-bold hover:underline underline-offset-2 decoration-4"
           :locale="locale.code"
-          @click.prevent.stop="setLocale(locale.code);"
+          @click="setLocale(locale.code);"
+          external
         >
         {{ locale.name }}
         </SwitchLocalePathLink>

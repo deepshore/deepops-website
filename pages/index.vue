@@ -103,7 +103,6 @@
 
 <script setup lang="ts">
 
-const route = useRoute()
 const i18n = useNuxtApp().$i18n
 const appConfig = useAppConfig()
 
