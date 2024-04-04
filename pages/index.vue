@@ -119,7 +119,7 @@ if (localeCode !== 'de') {
 }
 
 const url = `${appConfig.baseUrl}/${localeURL}${appConfig.pageUrlName}.json`
-const { data: deepOpsPages } = await useFetch(url)
+const { data: deepOpsPages } = await useFetch(url, { watch: false })
 
 </script>
 
