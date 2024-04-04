@@ -4,7 +4,7 @@ COPY . .
 
 ENV BACKEND_URL https://deepshore.de
 
-RUN yarn && yarn generate
+RUN npm ci && npm run generate
 
 FROM nginx:1.25
 
