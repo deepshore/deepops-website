@@ -30,6 +30,9 @@ export default defineNuxtConfig({
     },
   },
   ssr: true,
+  nitro: {
+    static: true
+  },
   modules: [
     '@nuxtjs/google-fonts',
     '@nuxt/image',
