@@ -12,25 +12,30 @@
         </div>
       </div>
       <div class="lg:flex">
-        <nuxt-link
+        <SwitchLocalePathLink
           v-for="locale in availableLocales"
           :key="locale.code"
           class="font-bold hover:underline underline-offset-2 decoration-4"
-          :to="switchLocalePath(locale.code)"
+          :locale="locale.code"
+          @click.prevent.stop="setLocale(locale.code);"
         >
-          {{ locale.name }}
-        </nuxt-link>
+        {{ locale.name }}
+        </SwitchLocalePathLink>
       </div>
     </div>
   </nav>
 </template>
 
-<script>
-export default {
-  computed: {
-    availableLocales () {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
-    }
-  }
-}
+<script setup>
+const { locale, locales, setLocale } = useI18n()
+const setI18nParams = useSetI18nParams()
+
+setI18nParams({
+  experimental: { switchLocalePathLinkSSR: true }
+})
+
+const availableLocales = computed(() => {
+  return locales.value.filter(i => i.code !== locale.value)
+})
+
 </script>

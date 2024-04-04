@@ -102,9 +102,6 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  layout: 'default'
-})
 
 const route = useRoute()
 const i18n = useNuxtApp().$i18n
