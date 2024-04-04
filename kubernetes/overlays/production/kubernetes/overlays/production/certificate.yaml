@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: deepops-website
+spec:
+  commonName: "deepops.de"
+  dnsNames:
+    - "deepops.de"
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    rotationPolicy: Never
+    size: 2048
+  secretName: deepops-website-tls
