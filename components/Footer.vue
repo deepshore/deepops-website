@@ -5,7 +5,7 @@
       class="flex flex-row items-center justify-between"
     >
       <div class="px-4 md:px-16 w-auto">
-        <a class="text-gray-500 no-underline hover:no-underline" href="#">© Deepshore GmbH 2022</a>
+        <a class="text-gray-500 no-underline hover:no-underline" href="#">© Deepshore GmbH 2024</a>
       </div>
       <div class="px-4 md:px-16 w-auto">
         <a class="text-gray-500 no-underline hover:no-underline" href="https://deepshore.de/company/contact-imprint-privacy">Impressum/Imprint</a>
