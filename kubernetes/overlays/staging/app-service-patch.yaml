@@ -1,0 +1,4 @@
+- op: replace
+  path: /spec/selector
+  value:
+    app.kubernetes.io/name: deepops-website-staging
