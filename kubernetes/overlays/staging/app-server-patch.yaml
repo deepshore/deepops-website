@@ -1,6 +1,6 @@
 - op: replace
   path: /spec/template/spec/containers/0/image
-  value: ghcr.io/deepshore/deepops-website:pr-4
+  value: ghcr.io/deepshore/deepops-website:main
 - op: replace
   path: /spec/template/spec/containers/0/imagePullPolicy
   value: Always
