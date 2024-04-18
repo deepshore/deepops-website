@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: deepops-website
+  annotations:
+    nginx.ingress.kubernetes.io/enable-modsecurity: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - secretName: staging-deepops-website-tls
+      hosts:
+        - deepops.de
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: deepops-website
+                port:
+                  number: 80
+      host: staging.deepops.de

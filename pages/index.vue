@@ -3,15 +3,15 @@
     <section class="xl:py-4 w-full shrink">
       <!-- Mobile -->
       <div class="block sm:hidden">
-        <div class="bg-cover bg-right h-80" :style="{'background-image': `url(${getImagePath(data.frontmatter.image.mobile)})`}" />
-        <HeaderText :data="data" />
+        <div class="bg-cover bg-right h-80" :style="{'background-image': `url(${getImagePath(deepOpsPages.frontmatter.image.mobile)})`}" />
+        <HeaderText :data="deepOpsPages" />
       </div>
       <!-- Desktop -->
       <div
         class="hidden sm:block w-full 2xl:rounded-3xl md:drop-shadow-xl py-4 sm:py-12 md:py-16 lg:py-24 xl:py-32 2xl:py-64 bg-cover bg-center"
-        :style="{'background-image': `url(${getImagePath(data.frontmatter.image.desktop)})`}"
+        :style="{'background-image': `url(${getImagePath(deepOpsPages.frontmatter.image.desktop)})`}"
       >
-        <HeaderText :data="data" />
+        <HeaderText :data="deepOpsPages" />
       </div>
     </section>
 
@@ -19,7 +19,7 @@
     <section class="w-full">
       <div class="grid sm:grid-cols-2 md:grid-cols-4 my-2 sm:my-4 md:my-8 xl:my-12 gap-y-4 sm:gap-y-8 text-center">
         <a
-          v-for="(section, index) in data.frontmatter.sections"
+          v-for="(section, index) in deepOpsPages.frontmatter.sections"
           :key="index"
           class="group flex flex-row gap-1 sm:gap-0 sm:flex-col mx-8 sm:mx-0 items-center items-center sm:items-stretch"
           :href="'#' + index"
@@ -43,7 +43,7 @@
     </section>
 
     <!-- Content Sections -->
-    <section v-for="(section, index) in data.frontmatter.sections" :id="index" :key="index" class="w-full p-4 sm:p-8 md:p-12 xl:p-16 pb-32">
+    <section v-for="(section, index) in deepOpsPages.frontmatter.sections" :id="index" :key="index" class="w-full p-4 sm:p-8 md:p-12 xl:p-16 pb-32">
       <div
         class="flex flex-col md:flex-row flex-col-reverse md:items-center"
         :class="{ 'md:flex-row-reverse': section.content_side === 'left' }"
@@ -101,40 +101,27 @@
   </div>
 </template>
 
-<script>
-// Allows for usasge of self assigned ssl certs on dev systems
-if (process.env.NODE_ENV === 'development') {
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+<script setup lang="ts">
+
+const i18n = useNuxtApp().$i18n
+const appConfig = useAppConfig()
+
+console.log(appConfig.baseUrl)
+
+const localeCode = i18n.locale.value
+let localeURL = ''
+if (localeCode !== 'de') {
+  localeURL = `${localeCode}/`
 }
 
-export default {
-  name: 'IndexPage',
-  data () {
-    return {
-      data: {},
-      baseUrl: process.env.BACKEND_URL,
-      pageUrlName: 'deepops-homepage',
-      mediaBaseURL: 'user/pages'
-    }
-  },
-  async fetch () {
-    const localeCode = this.$i18n.localeProperties.code
-    let localeURL = ''
-    if (localeCode !== 'de') {
-      localeURL = `${localeCode}/`
-    }
-    const url = `${this.baseUrl}/${localeURL}${this.pageUrlName}.json`
-    this.data = await fetch(
-      url
-    ).then(res => res.json())
-  },
-  methods: {
-    getPageByLink (link) {
-      return link
-    },
-    getImagePath (file) {
-      return `${this.baseUrl}/${this.mediaBaseURL}/${this.pageUrlName}/${file}`
-    }
-  }
-}
+const url = `${appConfig.baseUrl}/${localeURL}${appConfig.pageUrlName}.json`
+
+const deepOpsPages = useState('deepOpsPages');
+
+await callOnce(async () => {
+  deepOpsPages.value = await $fetch(url)
+})
+
 </script>
+
+
