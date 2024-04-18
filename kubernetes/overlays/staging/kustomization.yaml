@@ -13,5 +13,5 @@ patches:
       name: deepops-website
   - path: app-service-patch.yaml
     target:
-      kind: Deployment
+      kind: Service
       name: deepops-website

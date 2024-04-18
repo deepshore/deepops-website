@@ -1,4 +1,8 @@
-- op: replace
-  path: /spec/selector
-  value:
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deepops-website
+spec:
+  selector:
     app.kubernetes.io/name: deepops-website-staging
