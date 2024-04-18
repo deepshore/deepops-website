@@ -4,6 +4,6 @@
 - op: replace
   path: /spec/template/spec/containers/0/imagePullPolicy
   value: Always
-- op: replace
+- op: add
   path: /metadata/labels/app.kubernetes.io~1name
   value: deepops-website-staging
